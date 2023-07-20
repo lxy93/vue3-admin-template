@@ -1,19 +1,18 @@
 <template>
-  <div class="box">
-    <h2>app组件</h2>
-    {{ str }}
-  </div>
+	<el-button type="primary">Primary</el-button>
+	<el-pagination
+    :page-size="100"
+    layout="total, prev, pager, next"
+    :total="1000"
+  />
+  <p class="aa">测试中</p>
+  <SvgIcon name="phone" color="pink" width="40px" height="40px" />
 </template>
 <script setup lang="ts">
-const str = "xxx";
+// import SvgIcon from '@/components/SvgIcon.vue'
 </script>
 <style lang="scss" scoped>
-.box {
-  width: 100px;
-  height: 100px;
-  background: #fff;
-  h2 {
-    color: red;
-  }
+.aa{
+  color: $base-color;
 }
 </style>
