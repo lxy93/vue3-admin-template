@@ -16,14 +16,6 @@ app.use(ElementPlus, {
 // import SvgIcon from '@/components/SvgIcon.vue'
 // app.component('SvgIcon',SvgIcon)
 app.use(globalComponent)
-axios({
-  url:'/api/user/login',
-  method: 'post',
-  data: {
-    username: 'admin',
-    password: '111111',
-  }
-})
 app.mount("#app");
 
 console.log(import.meta.env)
