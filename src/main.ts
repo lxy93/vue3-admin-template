@@ -7,7 +7,8 @@ import App from "./App.vue";
 import 'virtual:svg-icons-register' //svg注册
 import globalComponent from '@/components'
 import '@/styles/index.scss'
-import axios from "axios";
+import router from "@/router/index";
+import pinia from "./store";
 
 const app = createApp(App);
 app.use(ElementPlus, {
@@ -16,6 +17,8 @@ app.use(ElementPlus, {
 // import SvgIcon from '@/components/SvgIcon.vue'
 // app.component('SvgIcon',SvgIcon)
 app.use(globalComponent)
-app.mount("#app");
+.use(router)
+.use(pinia)
+.mount("#app");
 
-console.log(import.meta.env)
+// console.log(import.meta.env)
