@@ -10,7 +10,7 @@ export interface loginReaponeseData {
     data: DataType;
 }
 interface DataType {
-    token: string;
+    token?: string;
     message?: string
 }
 

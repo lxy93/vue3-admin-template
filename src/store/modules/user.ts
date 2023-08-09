@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { getLogin } from '@/api/user/index'
 import type { loginForm } from '@/api/user/type'
-import { ElMessage } from 'element-plus'
+import type { IUserState } from './type/type'
 let useUserStore = defineStore('User',{
-    state:()=> {
+    state: (): IUserState=> {
         return {
-            token: '111'
+            token: localStorage.getItem('Token')
         }
     },
     actions: {
@@ -15,14 +15,11 @@ let useUserStore = defineStore('User',{
         async userLogin(params: loginForm) {
             const {code, data} = await getLogin(params)
             if(code !== 200){
-                ElMessage({
-                    message: data.message
-                })
-                return false
+                return Promise.reject(new Error(data.message))
             }
-            this.token = data.token
-
-            
+            this.token = data.token as string
+            localStorage.setItem('Token',data.token as string)
+            return true
         }
     },
     getters: {},
